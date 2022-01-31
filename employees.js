@@ -67,9 +67,11 @@ empOne.getSchedule()
 
 //CODE HERE
 const empTwo = {
-    ...empOne["Nick"]
+    ...empOne,
+    name: "Nick"
 }
 
+// empTwo.name = "Nick"
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -95,8 +97,20 @@ const empTwo = {
 */
 
 //CODE HERE
+class Manager extends Employee {
+    constructor(name, shifts, employees) {
+        super(name, shifts)
+        this.employees = employees
+        this.shifts = shifts
+    }
+    getEmployees() {
+        console.log(`${this.name} manages ${this.employees}.`)
+    }
 
-
+    addEmployee(newEmployee) {
+        this.employees.push(newEmployee)
+    }
+}
 
 /*
     Create a new instance of your class.
@@ -110,7 +124,7 @@ const empTwo = {
 */
 
 //CODE HERE
-
+const manager = new Manager("Winston", "weekday mornings, weekday afternoons", ["Cece", "Schmidt"])
 
 /*
     Call the `getEmployees` method on the
@@ -118,6 +132,7 @@ const empTwo = {
 */
 
 //CODE HERE
+manager.getEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -125,7 +140,8 @@ const empTwo = {
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+//CODE HERE
+manager.addEmployee("Coach")
 
 /*
     Call the `getEmployees` method on the
@@ -134,3 +150,4 @@ const empTwo = {
 */
 
 //CODE HERE
+manager.getEmployees()

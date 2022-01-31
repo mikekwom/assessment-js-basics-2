@@ -60,7 +60,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza.tags["1"])
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -156,9 +156,9 @@ const foodArr = [{
     your food objects has.
 */
 
-//CODE HERE ------ come back
+//CODE HERE
 
-const filteredFood = foodArr.filter((element => element.tags === "cheesy"))
+const filteredFood = foodArr.filter((element => element.tags.includes("cheesy")))
 console.log(filteredFood)
 
 
@@ -203,7 +203,16 @@ console.log(filteredFood)
 */
 
 //CODE HERE
-
+const filterByProperty = (property, number, type) => {
+    const filteredArray = foodArr.filter(meal => {
+        if (type === "above") {
+            return meal[property] > number
+        } else if (type === "below") {
+            return meal[property] < number
+        }
+    })
+    return filteredArray
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -213,3 +222,4 @@ console.log(filteredFood)
 */
 
 //CODE HERE
+console.log(filterByProperty("price", 10, "below"))

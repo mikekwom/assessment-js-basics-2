@@ -60,6 +60,8 @@ const canWeDeliver = (zipCode) => {
     return "Sorry, we can't deliver to that address"
 }
 
+
+
 // console.log(canWeDeliver(85206))
 // console.log(canWeDeliverTwo(43434))
 
@@ -87,6 +89,18 @@ const canWeDeliverTwo = (zipCode) => {
     } else {
         return "Sorry, we can't deliver to that address"
     }
+}
+
+// using forEach
+const canWeDeliverThree = zipcode => {
+    deliveryAreaZipCodes.forEach(zip => {
+        let message = "Sorry, we can't deliver to that address"
+        if (zipcode === zip) {
+            message = "You're in our delivery zone!"
+        }
+    })
+    // cannot be in the forEach loop
+    return message
 }
 
 // console.log(canWeDeliverTwo(85206))
@@ -124,13 +138,9 @@ const deals = [{
     to replace the 15 with a 10.
 */
 
-//CODE HERE ----------------- come back
-const toTenPercent = (deals) => {
-    deals["title"] = deals["title"].replace("15%", "10%")
-    console.log(deals)
-}
-// console.log(toTenPercent(deals))
-
+//CODE HERE
+deals[0].title = deals[0].title.replace(15, 10)
+//console.log(deals)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -145,3 +155,5 @@ const toTenPercent = (deals) => {
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace("March", "April").trim()
+// console.log(deals)
